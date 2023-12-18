@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-hdr {
+  width: 100%;
+  height: 6rem;
+}
+.main-hdr .nav {
+  margin: 0 auto auto;
+  max-width: 1280px;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+}
+.main-hdr .nav .nav-logo {
+  padding: 1rem;
+}
+.main-hdr .nav .nav-logo a {
+  text-decoration: none;
+  font-size: 3rem;
+  color: darkblue;
+}
+.main-hdr .nav .nav-srch {
+  padding: 1rem;
+  display: flex;
+  margin: auto 0;
+}
+.main-hdr .nav .nav-srch form {
+  display: flex;
+  gap: 1rem;
+}
+.main-hdr .nav .nav-srch form input {
+  padding: 0.5rem 0.5rem 0.4rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-width: 0.15rem;
+  border-color: black;
+}
+.main-hdr .nav .nav-srch form input::-moz-placeholder {
+  color: black;
+}
+.main-hdr .nav .nav-srch form input::placeholder {
+  color: black;
+}
+.main-hdr .nav .nav-srch form button {
+  padding: 0.85rem;
+  border: 0.15rem solid darkblue;
+  background-color: darkblue;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.main-hdr .nav .nav-srch form button:hover {
+  background-color: whitesmoke;
+  color: darkblue;
+  border: 0.15rem solid darkblue;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.main-page {
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
+}
+.main-page .span-3 {
+  flex: 3;
+}
+.main-page .span-3 .container {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+.main-page .span-3 .container .items {
+  border: 0.1rem solid black;
+  border-radius: 0.35rem;
+}
+.main-page .span-3 .container .items .item {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.main-page .span-3 .container .items .item .subitem {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  padding-left: 1rem;
+}
+.main-page .span-3 .container .items .item .subitem li {
+  padding: 0.25rem;
+}
+.main-page .span-3 .container .items .item .subitem li a {
+  color: black;
+}
+.main-page .span-3 .container .items .item .subitem-open {
+  max-height: 200px; /* Set a reasonable default value */
+}
+.main-page .span-9 {
+  flex: 9;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+.main-page .span-9 p {
+  margin-bottom: 2rem;
+}
+.main-page .span-9 .container .items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.main-page .span-9 .container .items .item {
+  flex: 3;
+}
+.main-page .span-9 .container .items .item .card {
+  border: 0.1rem solid rgb(221, 221, 221);
+  padding: 0.5rem;
+  height: 22rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.main-page .span-9 .container .items .item .card .card-img {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+}
+.main-page .span-9 .container .items .item .card .card-img img {
+  width: 15rem;
+  height: 15rem;
+}
+.main-page .span-9 .container .items .item .card .card-inf {
+  display: flex;
+  flex-direction: column;
+}
+.main-page .span-9 .container .items .item .card .card-inf .card-name {
+  height: 3rem;
+  text-align: center;
+  margin: 0.5rem auto;
+  width: 15rem;
+}
+.main-page .span-9 .container .items .item .card .card-inf .card-name a {
+  color: black;
+}
+.main-page .span-9 .container .items .item .card .card-inf .card-buy {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+}
+.main-page .span-9 .container .items .item .card .card-inf .card-buy a {
+  font-weight: 700;
+}
+.main-page .span-9 .container .items .item .card .card-inf .card-buy .blue {
+  color: darkblue;
+}
+.main-page .span-9 .container .items .item .card .card-inf .card-buy .red {
+  color: red;
+}
+.main-page .product {
+  margin: 1rem;
+}
+.main-page .product .product-path {
+  margin-bottom: 5rem;
+}
+.main-page .product .product-path ul {
+  display: flex;
+  gap: 0.5rem;
+}
+.main-page .product .product-path ul p {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.main-page .product .product-path ul p:hover {
+  color: darkblue;
+}
+.main-page .product .product-path ul a {
+  color: gray;
+  transition: color 0.3s;
+}
+.main-page .product .product-path ul a:hover {
+  color: darkblue;
+}
+.main-page .product .product-details {
+  display: flex;
+  gap: 2rem;
+}
+.main-page .product .product-details .span-3 {
+  flex: 3;
+}
+.main-page .product .product-details .span-6 {
+  flex: 6;
+}
+.main-page .product .product-details .span-6 div {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto;
+  justify-content: space-between;
+  gap: 1rem;
+  align-content: center;
+}
+.main-page .product .product-details .span-6 div .price {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  color: red;
+  margin: 0;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.main-page .product .product-details .span-6 div button {
+  padding: 0.85rem;
+  border: 0.15rem solid darkblue;
+  background-color: darkblue;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.main-page .product .product-details .span-6 div button:hover {
+  background-color: whitesmoke;
+  color: darkblue;
+  border: 0.15rem solid darkblue;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.main-page .product .product-details .span-6 p {
+  text-align: justify;
+  margin: 2rem auto;
+}/*# sourceMappingURL=style.css.map */
