@@ -30,7 +30,7 @@
 					}
 				?>
 					
-					<li class="item"><a><?=  $hlavna_kategoria ?></a>
+					<li class="item"><a href="products.php?kategoria=<?=$hlavna_kategoria?>"><?=  $hlavna_kategoria ?></a>
 						<ul class="subitem" >
 						<?php 
 							$podkategorie = array();
@@ -43,7 +43,7 @@
 							}
 							foreach ($podkategorie as $podkategoria) {
 								?>
-									<li><a href=""><?=  $podkategoria ?></a></li>
+									<li><a href="products.php?kategoria=<?=$hlavna_kategoria?>&subkategoria=<?=$podkategoria?>"><?=  $podkategoria ?></a></li>
 							<?php } ?>
 						</ul>
 					</li>

@@ -1,7 +1,9 @@
 <?php
 	include "_inc/config.php";
 	include "partials/header.php";
-	include "partials/sidebar.php"
+	include "partials/sidebar.php";
+
+	$pagenum = 0;
 
 ?>
 <div class="span-9">
@@ -10,7 +12,17 @@
 	<div class="container">
 		<ul class="items">
 			<?php
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE znacka='philips' LIMIT 25,9;";
+				$selectitems = $pagenum * 9;
+				if (isset($_GET['kategoria'])) {
+					if (isset($_GET['subkategoria'])) {
+						$kategoria = $_GET['kategoria'];
+						$subkategoria = $_GET['subkategoria'];
+						$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$kategoria | $subkategoria%' LIMIT $selectitems,9;";
+					}else{
+						$kategoria = $_GET['kategoria'];
+						$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$kategoria%' LIMIT $selectitems,9;";
+					}
+				}
 					$products = $DB->prepare($sql);
 					$products->execute();
 					$index_products = $products->fetchAll(PDO::FETCH_OBJ);

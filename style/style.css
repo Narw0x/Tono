@@ -96,6 +96,10 @@ a {
   padding: 0.5rem;
   cursor: pointer;
 }
+.main-page .span-3 .container .items .item a {
+  color: black;
+  text-decoration: none;
+}
 .main-page .span-3 .container .items .item .subitem {
   max-height: 0;
   overflow: hidden;
