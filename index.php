@@ -6,7 +6,10 @@
 
 	<div class="span-9">		
 		<h1>Výpredaj!</h1>
-		<p>Toto sú naše top produkty!</p>
+		<p>
+			Aktuálne prebieha vianočna akcia! Všetky produkty sú zľavnené o 10%!
+		</p>
+		<h3>Toto sú naše top produkty!</h3>
 		<div class="container">
 			<ul class="items">
 				<?php

@@ -116,8 +116,9 @@ a {
   padding: 0.5rem;
   margin-left: 0.5rem;
 }
-.main-page .span-9 p {
-  margin-bottom: 2rem;
+.main-page .span-9 h3, .main-page .span-9 p {
+  margin-top: 0.5;
+  margin-bottom: 1rem;
 }
 .main-page .span-9 .container .items {
   display: flex;

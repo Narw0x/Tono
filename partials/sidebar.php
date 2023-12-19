@@ -12,10 +12,6 @@
 			$pole_kategorii[] = $hlavna_kategoria;
 		}
 	}
-	//<ul class="subitem" >
-	// <li><a href=""><?=  $nase_kategorie[1] </a></li>
-	// </ul>
-
 ?>
 
 
@@ -29,9 +25,7 @@
 						$kategorie = $DB->prepare($sql);
 						$kategorie->execute();
 						$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
-					if ($hlavna_kategoria == "Smart hodinky") {
-						
-					}else{
+					if ($hlavna_kategoria != "Smart hodinky") {
 						?><hr><?php
 					}
 				?>
