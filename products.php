@@ -28,90 +28,97 @@
 <div class="span-9">
 	<h1>Naše produkty</h1>
 	<?php 
+		if (isset($_GET['k1'])){
+			$k1 = $_GET['k1'];
+			$pole_kategorii_url[] = $k1;
+		} 
+		if (isset($_GET['k2'])){
+			$k2 = $_GET['k2'];
+			$pole_kategorii_url[] = $k2;
+		}
+		if (isset($_GET['k3'])){
+			$k3 = $_GET['k3'];
+			$pole_kategorii_url[] = $k3;
+		}
+		if (isset($_GET['k4'])){
+			$k4 = $_GET['k4'];
+			$pole_kategorii_url[] = $k4;
+		}
+		if (isset($_GET['k5'])){
+			$k5 = $_GET['k5'];
+			$pole_kategorii_url[] = $k5;
+		}
+		if (isset($_GET['k6'])){
+			$k6 = $_GET['k6'];
+			$pole_kategorii_url[] = $k6;
+		}
+		if (isset($_GET['k7'])){
+			$k7 = $_GET['k7'];
+			$pole_kategorii_url[] = $k7;
+		}
+		if (isset($_GET['k8'])){
+			$k8 = $_GET['k8'];
+			$pole_kategorii_url[] = $k8;
+		}
+		if (isset($_GET['k9'])){
+			$k9 = $_GET['k9'];
+			$pole_kategorii_url[] = $k9;
+		}
+
+
+		$pocet_kategorii = count($pole_kategorii_url);
+
+		if(isset($k9)){
+			$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6." | ".$k7." | ".$k8." | ".$k9;
+		}elseif(isset($k8)){
+			$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6." | ".$k7." | ".$k8;
+		}elseif(isset($k7)){
+			$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6." | ".$k7;
+		}elseif(isset($k6)){
+			$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6;
+		}elseif(isset($k5)){
+			$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5;
+		}elseif(isset($k4)){
+			$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4;
+		}elseif(isset($k3)){
+			$sql_k = $k1." | ".$k2." | ".$k3;
+		}elseif(isset($k2)){
+			$sql_k = $k1." | ".$k2;
+		}elseif(isset($k1)){
+			$sql_k = $k1;
+		}
+
+		$sql = "SELECT DISTINCT kategoria FROM `projektdatart` WHERE kategoria LIKE '$sql_k%'";
+
+
+
 		
+
+		$kategorie = $DB->prepare($sql);
+		$kategorie->execute();
+		$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
+		foreach($kategorie as $kategoria){
+			$kategoria = $kategoria->kategoria;
+			$nase_kategorie = explode(" | ", $kategoria);
+			$pod_kategoria = $nase_kategorie[$pocet_kategorii];
+			if((!in_array($pod_kategoria, $polia_kategorii[$pocet_kategorii-1])) && ($pod_kategoria != "")){
+				$polia_kategorii[$pocet_kategorii-1][] = $pod_kategoria;
+			}
+			
+		}
+		$je_podkategoria = false;
+		foreach ($polia_kategorii as $polia_kategorie) {
+			if($polia_kategorie){
+				$je_podkategoria = true;
+			}
+		}
+		if($je_podkategoria){
 		
 	?>
 	<div class="container-categories">
 		<ul class="items">
 			<?php 	
-				if (isset($_GET['k1'])){
-					$k1 = $_GET['k1'];
-					$pole_kategorii_url[] = $k1;
-				} 
-				if (isset($_GET['k2'])){
-					$k2 = $_GET['k2'];
-					$pole_kategorii_url[] = $k2;
-				}
-				if (isset($_GET['k3'])){
-					$k3 = $_GET['k3'];
-					$pole_kategorii_url[] = $k3;
-				}
-				if (isset($_GET['k4'])){
-					$k4 = $_GET['k4'];
-					$pole_kategorii_url[] = $k4;
-				}
-				if (isset($_GET['k5'])){
-					$k5 = $_GET['k5'];
-					$pole_kategorii_url[] = $k5;
-				}
-				if (isset($_GET['k6'])){
-					$k6 = $_GET['k6'];
-					$pole_kategorii_url[] = $k6;
-				}
-				if (isset($_GET['k7'])){
-					$k7 = $_GET['k7'];
-					$pole_kategorii_url[] = $k7;
-				}
-				if (isset($_GET['k8'])){
-					$k8 = $_GET['k8'];
-					$pole_kategorii_url[] = $k8;
-				}
-				if (isset($_GET['k9'])){
-					$k9 = $_GET['k9'];
-					$pole_kategorii_url[] = $k9;
-				}
-
-
-				$pocet_kategorii = count($pole_kategorii_url);
-
-				if(isset($k9)){
-					$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6." | ".$k7." | ".$k8." | ".$k9;
-				}elseif(isset($k8)){
-					$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6." | ".$k7." | ".$k8;
-				}elseif(isset($k7)){
-					$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6." | ".$k7;
-				}elseif(isset($k6)){
-					$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5." | ".$k6;
-				}elseif(isset($k5)){
-					$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4." | ".$k5;
-				}elseif(isset($k4)){
-					$sql_k = $k1." | ".$k2." | ".$k3." | ".$k4;
-				}elseif(isset($k3)){
-					$sql_k = $k1." | ".$k2." | ".$k3;
-				}elseif(isset($k2)){
-					$sql_k = $k1." | ".$k2;
-				}elseif(isset($k1)){
-					$sql_k = $k1;
-				}
-
-				$sql = "SELECT DISTINCT kategoria FROM `projektdatart` WHERE kategoria LIKE '$sql_k%'";
-
-
-
 				
-
-				$kategorie = $DB->prepare($sql);
-				$kategorie->execute();
-				$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
-				foreach($kategorie as $kategoria){
-					$kategoria = $kategoria->kategoria;
-					$nase_kategorie = explode(" | ", $kategoria);
-					$pod_kategoria = $nase_kategorie[$pocet_kategorii];
-					if((!in_array($pod_kategoria, $polia_kategorii[$pocet_kategorii-1])) && ($pod_kategoria != "")){
-						$polia_kategorii[$pocet_kategorii-1][] = $pod_kategoria;
-					}
-					
-				}
 				
 				if($polia_kategorii[0]){
 					foreach ($polia_kategorii[0] as $k1_s) {
@@ -175,7 +182,7 @@
 			?>	
 		</ul>
 	</div>
-	<?php ?>
+	<?php } ?>
 
 	<div class="container">
 		<ul class="items">

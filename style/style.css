@@ -120,13 +120,15 @@ a {
   padding: 0.5rem;
   margin-left: 0.5rem;
 }
+.main-page .span-9 h1 {
+  margin-bottom: 2rem;
+}
 .main-page .span-9 h3, .main-page .span-9 p {
   margin-top: 0.5;
   margin-bottom: 1rem;
 }
 .main-page .span-9 .container-categories {
   border: 0.1rem solid rgb(221, 221, 221);
-  padding: 0.5rem;
   border-radius: 0.5rem;
   margin: 2rem 0;
 }
@@ -135,9 +137,22 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 0.75rem;
+  width: 100%;
+  height: auto;
 }
 .main-page .span-9 .container-categories .items .item {
-  flex: 2;
+  flex: 1 0 auto;
+  width: calc(20% - 1rem);
+  margin: 0.5rem;
+  border: 0.1rem solid rgb(221, 221, 221);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.main-page .span-9 .container-categories .items .item a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
 }
 .main-page .span-9 .container .items {
   display: flex;
