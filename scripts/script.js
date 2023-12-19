@@ -1,4 +1,4 @@
-const elements = document.querySelectorAll(".items .item");
+const elements = document.querySelectorAll(".items .sidebar");
 
 elements.forEach(function (element) {
     element.addEventListener('click', function () {

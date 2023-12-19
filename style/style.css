@@ -124,6 +124,21 @@ a {
   margin-top: 0.5;
   margin-bottom: 1rem;
 }
+.main-page .span-9 .container-categories {
+  border: 0.1rem solid rgb(221, 221, 221);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+.main-page .span-9 .container-categories .items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.main-page .span-9 .container-categories .items .item {
+  flex: 2;
+}
 .main-page .span-9 .container .items {
   display: flex;
   flex-direction: row;
