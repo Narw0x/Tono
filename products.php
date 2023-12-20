@@ -21,10 +21,22 @@
 	if (isset($_GET['page'])) {
 		$pagenum = $_GET['page'];
 	}else{
-		$pagenum = 0;
+		$pagenum = 1;
 	}
 
 ?>
+<script>
+  var pagenum = <?php echo $pagenum; ?>;
+  console.log(pagenum);
+  window.onload = function() {
+    var previousItem = document.getElementById('previous');
+    
+    if (pagenum === 1) {
+      previousItem.classList.add('block');
+    }
+  };
+</script>
+
 <div class="span-9">
 	<h1>Naše produkty</h1>
 	<?php 
@@ -89,7 +101,6 @@
 		}
 
 		$je_podkategoria = false;
-
 
 		if($sql_k){
 		
@@ -178,22 +189,18 @@
 						<?php
 					}
 				}
-
-
-				
 			?>	
 		</ul>
 	</div>
 	<?php } ?>
-
 	<div class="container">
 		<ul class="items">
 			<?php
-				$selectitems = $pagenum * 24;
+				$selectitems = $pagenum * 24 - 24;
 				if($sql_k == ""){ 
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT $selectitems,24;";
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT $selectitems, 24;";
 				}else{
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$sql_k%' LIMIT $selectitems,24;";
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$sql_k%' LIMIT $selectitems, 24;";
 				}
 				$products = $DB->prepare($sql);
 				$products->execute();
@@ -220,7 +227,54 @@
 			</ul>
 		</div>
 		<div class="pagi">
-			
+			<?php
+			 if($polia_kategorii[0]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[1]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[2]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[3]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[4]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[5]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[6]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[7]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}elseif($polia_kategorii[8]){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$pole_kategorii_url[8]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$pole_kategorii_url[8]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}
+			?>
 		</div>
 	</div>
 <?php

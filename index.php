@@ -5,11 +5,11 @@
 ?>
 
 	<div class="span-9">		
-		<h1>Výpredaj!</h1>
+		<h1>Black Friday!!!!!</h1>
 		<p>
-			Aktuálne prebieha vianočna akcia! Všetky produkty sú zľavnené o 10%!
+			Najväčšia akcia roka! Všetky produkty sú zľavnené o 50%!
 		</p>
-		<h3>Toto sú naše top produkty!</h3>
+		<h3>Takáto ponuka tu ešte nebola</h3>
 		<div class="container">
 			<ul class="items">
 				<?php

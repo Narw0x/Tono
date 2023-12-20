@@ -20,7 +20,7 @@ a {
 }
 .main-hdr .nav {
   margin: 0 auto auto;
-  max-width: 1280px;
+  max-width: 1480px;
   height: 6rem;
   display: flex;
   justify-content: space-between;
@@ -82,7 +82,7 @@ a {
 
 .main-page {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1480px;
   display: flex;
   padding: 1rem;
   border-radius: 1rem;
@@ -133,6 +133,20 @@ a {
   display: flex;
   justify-content: center;
   margin: 1rem auto;
+  gap: 1rem;
+}
+.main-page .span-9 .pagi .pagiBtn {
+  border: 0.1rem solid #16425B;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  color: #16425B;
+  text-decoration: none;
+}
+.main-page .span-9 .pagi .pagiBtn:hover {
+  box-shadow: 0px 9px 16px -1px rgba(0, 0, 0, 0.27);
+  transform: scale(1.01);
 }
 .main-page .span-9 h1 {
   margin-bottom: 2rem;
@@ -311,4 +325,8 @@ a {
 .main-page .product .product-details .span-6 p {
   text-align: justify;
   margin: 2rem auto;
+}
+
+.block {
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */
