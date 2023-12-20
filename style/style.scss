@@ -177,6 +177,7 @@ a{
                 gap: 0.75rem ;
                 .item{
                     flex: 3;
+                    max-width: 33%;
                     .card{
                         border: 0.1rem solid rgb(221, 221, 221);
                         padding: 0.5rem;

@@ -162,6 +162,7 @@ a {
 }
 .main-page .span-9 .container .items .item {
   flex: 3;
+  max-width: 33%;
 }
 .main-page .span-9 .container .items .item .card {
   border: 0.1rem solid rgb(221, 221, 221);
