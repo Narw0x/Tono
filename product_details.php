@@ -22,37 +22,38 @@
 	}
 	include "partials/header.php";
 ?>
-<main class="main-page">
-	<div class="product">
-		<div class="product-path">
-			<ul>
-				<li><a href="index.php">Domov</a><span>   /</span></li>
-				<li><a href="products.php?k1=<?php echo $k1 ?>&k2=<?php echo $k2 ?>">Produkty</a><span>   /</span></li>
-				<li class="active"><p><?php echo $produkt_n?></p></li>
-			</ul>	
+<div class="bgcolor">
+	<main class="main-page">
+		<div class="product">
+			<div class="product-path">
+				<ul>
+					<li><a href="index.php">Domov</a><span>   /</span></li>
+					<li><a href="products.php?k1=<?php echo $k1 ?>&k2=<?php echo $k2 ?>">Produkty</a><span>   /</span></li>
+					<li class="active"><p><?php echo $produkt_n?></p></li>
+				</ul>	
+			</div>
+			
+			<div class="product-details">
+				<?php 
+					foreach ($zvoleny_produkt as $produktik) {
+					?> 
+					<div class="span-3">
+						<a href="" title="">
+							<img src="<?= $produktik->img ?>" style="width:100%" alt="<?= $produktik->nazov ?>"/>
+						</a>
+						
+					</div>
+					<div class="span-6">
+							<h1><?= $produktik->nazov ?></h1>
+							<?= $produktik->popisproduktu ?>
+							<div class="">
+								<p class="price"><?= $produktik->cena ?>€</p>
+								<button type="" class=""> Pridať do košíka</button>
+							</div>
+					</div>
+					<?php	}?>
+			</div>
 		</div>
-		
-		<div class="product-details">
-			<?php 
-				foreach ($zvoleny_produkt as $produktik) {
-				?> 
-				<div class="span-3">
-					<a href="" title="">
-						<img src="<?= $produktik->img ?>" style="width:100%" alt="<?= $produktik->nazov ?>"/>
-					</a>
-					
-				</div>
-				<div class="span-6">
-						<h1><?= $produktik->nazov ?></h1>
-						<?= $produktik->popisproduktu ?>
-						<div class="">
-							<p class="price"><?= $produktik->cena ?>€</p>
-							<button type="" class=""> Pridať do košíka</button>
-						</div>
-				</div>
-				<?php	}?>
-		</div>
-	</div>
 <?php
 	include "partials/footer.php";
 

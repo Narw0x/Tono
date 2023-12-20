@@ -20,25 +20,20 @@
 					foreach ($index_products as $product) {
 				?>
 					<li class="item">
-						<div class="card">
-							<a class="card-img" href="product_details.php?produkt=<?= $product->urlnazov ?>">
+						<a class="card" href="product_details.php?produkt=<?= $product->urlnazov ?>">
+							<div class="card-img" href="product_details.php?produkt=<?= $product->urlnazov ?>">
 								<img  src='<?= $product->img ?>' alt="<?= $product->nazov ?>"/>
-							</a>
+							</div>
 							<div class="card-inf">
-								<h5 class="card-name">
-									<a href="product_details.php?produkt=<?= $product->urlnazov ?>"><?= $product->nazov ?></a>
-								</h5>
+								<h5 class="card-name"><?= $product->nazov ?></h5>
 								<div class="card-buy">
-									
-									<a class="red" href="product_details.php?produkt=<?= $product->urlnazov ?>">
-											<?= $product->cena ?>€
-									</a>
-									<a class="blue" href="#">
+									<div class="red"><?= $product->cena ?>€</div>
+									<div class="blue" >
 										Pridať do košíka
-									</a>
+									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</li>
 				<?php } ?>
 			</ul>		

@@ -16,6 +16,7 @@ a {
 .main-hdr {
   width: 100%;
   height: 6rem;
+  background-color: #81C3D7;
 }
 .main-hdr .nav {
   margin: 0 auto auto;
@@ -30,7 +31,7 @@ a {
 .main-hdr .nav .nav-logo a {
   text-decoration: none;
   font-size: 3rem;
-  color: darkblue;
+  color: #16425B;
 }
 .main-hdr .nav .nav-srch {
   padding: 1rem;
@@ -47,30 +48,36 @@ a {
   font-weight: 600;
   font-size: 1rem;
   border-width: 0.15rem;
-  border-color: black;
+  border-color: #16425B;
+  background-color: #81C3D7;
 }
 .main-hdr .nav .nav-srch form input::-moz-placeholder {
-  color: black;
+  color: #16425B;
 }
 .main-hdr .nav .nav-srch form input::placeholder {
-  color: black;
+  color: #16425B;
 }
 .main-hdr .nav .nav-srch form button {
   padding: 0.85rem;
-  border: 0.15rem solid darkblue;
-  background-color: darkblue;
-  color: whitesmoke;
+  border: 0.15rem solid #16425B;
+  background-color: #16425B;
+  color: #81C3D7;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 0.5rem;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 .main-hdr .nav .nav-srch form button:hover {
-  background-color: whitesmoke;
-  color: darkblue;
-  border: 0.15rem solid darkblue;
+  background-color: #81C3D7;
+  color: #16425B;
+  border: 0.15rem solid #16425B;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.bgcolor {
+  background-color: #81C3D7;
+  min-height: 100vh;
 }
 
 .main-page {
@@ -80,6 +87,8 @@ a {
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
+  background-color: #D9DCD6;
+  padding-bottom: 3rem;
 }
 .main-page .span-3 {
   flex: 3;
@@ -89,7 +98,7 @@ a {
   margin-right: 0.5rem;
 }
 .main-page .span-3 .container .items {
-  border: 0.1rem solid black;
+  border: 0.1rem solid #16425B !important;
   border-radius: 0.35rem;
 }
 .main-page .span-3 .container .items .item {
@@ -97,7 +106,7 @@ a {
   cursor: pointer;
 }
 .main-page .span-3 .container .items .item a {
-  color: black;
+  color: #16425B;
   text-decoration: none;
 }
 .main-page .span-3 .container .items .item .subitem {
@@ -110,7 +119,7 @@ a {
   padding: 0.25rem;
 }
 .main-page .span-3 .container .items .item .subitem li a {
-  color: black;
+  color: #16425B;
 }
 .main-page .span-3 .container .items .item .subitem-open {
   max-height: 200px; /* Set a reasonable default value */
@@ -120,12 +129,19 @@ a {
   padding: 0.5rem;
   margin-left: 0.5rem;
 }
+.main-page .span-9 .pagi {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
 .main-page .span-9 h1 {
   margin-bottom: 2rem;
+  color: #16425B;
 }
 .main-page .span-9 h3, .main-page .span-9 p {
   margin-top: 0.5;
   margin-bottom: 1rem;
+  color: #16425B;
 }
 .main-page .span-9 .container-categories {
   border: 0.1rem solid rgb(221, 221, 221);
@@ -144,13 +160,11 @@ a {
   flex: 1 0 auto;
   width: calc(25% - 1rem);
   margin: 0.5rem;
-  border: 0.1rem solid rgb(221, 221, 221);
+  border: 0.1rem solid #16425B;
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-}
-.main-page .span-9 .container-categories .items .item a {
-  color: black;
+  color: #16425B;
   text-decoration: none;
   text-align: center;
 }
@@ -172,6 +186,12 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  background-color: white;
+  transition: all 0.25s ease-in-out;
+}
+.main-page .span-9 .container .items .item .card:hover {
+  box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
+  transform: scale(1.02);
 }
 .main-page .span-9 .container .items .item .card .card-img {
   display: flex;
@@ -194,9 +214,7 @@ a {
   text-align: center;
   margin: 0.5rem auto;
   width: 15rem;
-}
-.main-page .span-9 .container .items .item .card .card-inf .card-name a {
-  color: black;
+  color: #16425B;
 }
 .main-page .span-9 .container .items .item .card .card-inf .card-buy {
   margin-top: auto;
@@ -209,10 +227,10 @@ a {
   font-weight: 700;
 }
 .main-page .span-9 .container .items .item .card .card-inf .card-buy .blue {
-  color: darkblue;
+  color: #3A7CA5;
 }
 .main-page .span-9 .container .items .item .card .card-inf .card-buy .red {
-  color: red;
+  color: #81C3D7;
 }
 .main-page .product {
   margin: 1rem;
@@ -230,14 +248,14 @@ a {
   transition: color 0.3s;
 }
 .main-page .product .product-path ul p:hover {
-  color: darkblue;
+  color: #16425B;
 }
 .main-page .product .product-path ul a {
   color: gray;
   transition: color 0.3s;
 }
 .main-page .product .product-path ul a:hover {
-  color: darkblue;
+  color: #16425B;
 }
 .main-page .product .product-details {
   display: flex;
@@ -245,6 +263,11 @@ a {
 }
 .main-page .product .product-details .span-3 {
   flex: 3;
+}
+.main-page .product .product-details img {
+  max-height: 40rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .main-page .product .product-details .span-6 {
   flex: 6;
@@ -262,7 +285,7 @@ a {
   text-align: center;
   justify-content: center;
   font-weight: bold;
-  color: red;
+  color: #2F6690;
   margin: 0;
   font-size: 1.5rem;
   padding: 0.5rem 0;
@@ -270,18 +293,18 @@ a {
 }
 .main-page .product .product-details .span-6 div button {
   padding: 0.85rem;
-  border: 0.15rem solid darkblue;
-  background-color: darkblue;
-  color: whitesmoke;
+  border: 0.15rem solid #16425B;
+  background-color: #16425B;
+  color: #81C3D7;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 0.5rem;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 .main-page .product .product-details .span-6 div button:hover {
-  background-color: whitesmoke;
-  color: darkblue;
-  border: 0.15rem solid darkblue;
+  background-color: #81C3D7;
+  color: #16425B;
+  border: 0.15rem solid #16425B;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }

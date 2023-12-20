@@ -1,4 +1,4 @@
-@mixin button($color: darkblue, $bgcolor: whitesmoke){
+@mixin button($color: #16425B, $bgcolor: #81C3D7){
     padding: 0.85rem;
     border: 0.15rem solid $color;                        
     background-color: $color;
@@ -37,6 +37,7 @@ a{
 .main-hdr{
     width: 100%;
     height: 6rem;
+    background-color: #81C3D7;
     .nav{
         margin: 0 auto auto;
         max-width: 1280px;
@@ -48,7 +49,7 @@ a{
             a{
                 text-decoration: none;
                 font-size: 3rem;
-                color: darkblue;
+                color: #16425B;
 
             }
         }
@@ -67,9 +68,10 @@ a{
                     font-weight: 600;
                     font-size: 1rem;
                     border-width: 0.15rem;
-                    border-color: black;
+                    border-color: #16425B;
+                    background-color: #81C3D7;
                     &::placeholder{
-                        color: black;
+                        color: #16425B;
                     }
                 }
                 button{
@@ -81,6 +83,12 @@ a{
         }
     }
 }
+
+.bgcolor{
+    background-color: #81C3D7;
+    min-height: 100vh;
+}
+
 .main-page{
     margin: 0 auto;
     max-width: 1280px;
@@ -90,18 +98,19 @@ a{
     -webkit-box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
     -moz-box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
     box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
-
+    background-color: #D9DCD6;
+    padding-bottom: 3rem;
     .span-3{
         flex: 3;
         .container{
             padding: 0.5rem;
             margin-right: 0.5rem;
             .items{
-                border: 0.1rem solid black;
+                border: 0.1rem solid #16425B !important;
                 border-radius: 0.35rem;
                 .item{
                     a{
-                        color: black;
+                        color: #16425B;
                         text-decoration: none;
                     }
                     padding: 0.5rem;
@@ -114,7 +123,7 @@ a{
                         li{
                             padding: 0.25rem;
                             a{
-                                color: black;
+                                color: #16425B;
                             }
                         }
                     }
@@ -130,13 +139,21 @@ a{
         flex: 9;
         padding: 0.5rem;
         margin-left: 0.5rem;
+        .pagi{
+            display: flex;
+            justify-content: center;
+            margin: 1rem auto;
+        }
+
         h1{
             margin-bottom: 2rem;
+            color: #16425B;
         }
         h3, p
         {
             margin-top: 0.5;
             margin-bottom: 1rem;
+            color: #16425B;
         }
         .container-categories {
             border: 0.1rem solid rgb(221, 221, 221);
@@ -155,16 +172,13 @@ a{
                     flex: 1 0 auto; 
                     width: calc(25% - 1rem); 
                     margin: 0.5rem;
-                    border: 0.1rem solid rgb(221, 221, 221);
+                    border: 0.1rem solid #16425B;
                     padding: 0.5rem;
-                    border-radius: 0.5rem;
+                    border-radius: 0.3rem;
                     cursor: pointer;
-        
-                    a {
-                        color: black;
-                        text-decoration: none;
-                        text-align: center;
-                    }
+                    color: #16425B;
+                    text-decoration: none;
+                    text-align: center;
                 }
             }
         }
@@ -186,7 +200,14 @@ a{
                         display: flex;
                         flex-direction: column;
                         gap: 0.5rem ;
-                        
+                        background-color: white;
+                        transition: all 0.250s ease-in-out;
+                        &:hover{
+                            -webkit-box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
+                            -moz-box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
+                            box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
+                            transform: scale(1.02);
+                        }
                         .card-img{
                             display: flex;
                             margin: auto;
@@ -207,9 +228,7 @@ a{
                                 text-align: center;
                                 margin: 0.5rem auto;
                                 width: 15rem;
-                                a{
-                                    color: black;
-                                }
+                                color: #16425B;
                             }
                             .card-buy{
                                 margin-top: auto;
@@ -221,10 +240,10 @@ a{
                                     font-weight: 700;
                                 }
                                 .blue{
-                                    color: darkblue;
+                                    color: #3A7CA5;
                                 }
                                 .red{
-                                    color:red;
+                                    color:#81C3D7;
                                 }
                             }
                         }
@@ -242,7 +261,7 @@ a{
                     cursor: pointer;
                     transition:  color 0.3s;
                     &:hover{
-                        color: darkblue;
+                        color: #16425B;
                     }
                 }
                 a{
@@ -250,7 +269,7 @@ a{
                     transition:  color 0.3s;
 
                     &:hover{
-                        color: darkblue;
+                        color: #16425B;
                     }
                 }
                 display: flex;
@@ -265,6 +284,10 @@ a{
             .span-3{
                 flex: 3;
             }
+                img{
+                    max-height: 40rem;
+                    object-fit: contain;
+                }
             .span-6{
                 flex: 6;
                 div{
@@ -279,7 +302,7 @@ a{
                         text-align:center;
                         justify-content: center;
                         font-weight:bold;
-                        color: red;
+                        color: #2F6690;
                         margin: 0;
                         font-size: 1.5rem;
                         padding: .5rem 0;

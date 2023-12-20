@@ -126,55 +126,55 @@
 					foreach ($polia_kategorii[0] as $k1_s) {
 						
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$k1_s?>"><?=  $k1_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$k1_s?>"><?=  $k1_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[1]){
 					foreach ($polia_kategorii[1] as $k2_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$k2_s?>"><?=  $k2_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$k2_s?>"><?=  $k2_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[2]){
 					foreach ($polia_kategorii[2] as $k3_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$k3_s?>"><?=  $k3_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$k3_s?>"><?=  $k3_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[3]){
 					foreach ($polia_kategorii[3] as $k4_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$k4_s?>"><?=  $k4_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$k4_s?>"><?=  $k4_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[4]){
 					foreach ($polia_kategorii[4] as $k5_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$k5_s?>"><?=  $k5_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$k5_s?>"><?=  $k5_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[5]){
 					foreach ($polia_kategorii[5] as $k6_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$k6_s?>"><?=  $k6_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$k6_s?>"><?=  $k6_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[6]){
 					foreach ($polia_kategorii[6] as $k7_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$k7_s?>"><?=  $k7_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$k7_s?>"><?=  $k7_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[7]){
 					foreach ($polia_kategorii[7] as $k8_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$k8_s?>"><?=  $k8_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$k8_s?>"><?=  $k8_s ?></a>
 						<?php
 					}
 				}elseif($polia_kategorii[8]){
 					foreach ($polia_kategorii[8] as $k9_s) {
 						?>
-							<li class="item"><a href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$pole_kategorii_url[8]?>&k10=<?=$k9_s?>"><?=  $k9_s ?></a></li>
+							<a class="item" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$pole_kategorii_url[8]?>&k10=<?=$k9_s?>"><?=  $k9_s ?></a>
 						<?php
 					}
 				}
@@ -189,11 +189,11 @@
 	<div class="container">
 		<ul class="items">
 			<?php
-				$selectitems = $pagenum * 9;
+				$selectitems = $pagenum * 24;
 				if($sql_k == ""){ 
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT $selectitems,9;";
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT $selectitems,24;";
 				}else{
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$sql_k%' LIMIT $selectitems,9;";
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$sql_k%' LIMIT $selectitems,24;";
 				}
 				$products = $DB->prepare($sql);
 				$products->execute();
@@ -201,31 +201,28 @@
 				foreach ($index_products as $product) {
 				?>
 					<li class="item">
-						<div class="card">
-							<a class="card-img" href="product_details.php?produkt=<?= $product->urlnazov ?>">
-								<img  src='<?= $product->img ?>' alt="<?= $produktik->nazov ?>"/>
-							</a>
+						<a class="card" href="product_details.php?produkt=<?= $product->urlnazov ?>">
+							<div class="card-img" href="product_details.php?produkt=<?= $product->urlnazov ?>">
+								<img  src='<?= $product->img ?>' alt="<?= $product->nazov ?>"/>
+							</div>
 							<div class="card-inf">
-								<h5 class="card-name">
-									<a href="product_details.php?produkt=<?= $product->urlnazov ?>"><?= $product->nazov ?></a>
-								</h5>
+								<h5 class="card-name"><?= $product->nazov ?></h5>
 								<div class="card-buy">
-									
-									<a class="red" href="product_details.php?produkt=<?= $product->urlnazov ?>">
-										<?= $product->cena ?>€
-									</a>
-									<a class="blue" href="#">
+									<div class="red"><?= $product->cena ?>€</div>
+									<div class="blue" >
 										Pridať do košíka
-									</a>
+									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</li>
 				<?php } ?>
 			</ul>
 		</div>
+		<div class="pagi">
+			
+		</div>
 	</div>
 <?php
 	include "partials/footer.php";
-
 ?>
