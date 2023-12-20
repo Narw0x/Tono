@@ -142,7 +142,7 @@ a {
 }
 .main-page .span-9 .container-categories .items .item {
   flex: 1 0 auto;
-  width: calc(20% - 1rem);
+  width: calc(25% - 1rem);
   margin: 0.5rem;
   border: 0.1rem solid rgb(221, 221, 221);
   padding: 0.5rem;
@@ -181,6 +181,8 @@ a {
 .main-page .span-9 .container .items .item .card .card-img img {
   width: 15rem;
   height: 15rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .main-page .span-9 .container .items .item .card .card-inf {
   display: flex;
