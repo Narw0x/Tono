@@ -22,7 +22,7 @@
 					<li class="item">
 						<div class="card">
 							<a class="card-img" href="product_details.php?produkt=<?= $product->urlnazov ?>">
-								<img  src='<?= $product->img ?>' alt="<?= $produktik->nazov ?>"/>
+								<img  src='<?= $product->img ?>' alt="<?= $product->nazov ?>"/>
 							</a>
 							<div class="card-inf">
 								<h5 class="card-name">

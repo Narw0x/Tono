@@ -88,30 +88,32 @@
 			$sql_k = $k1;
 		}
 
-		$sql = "SELECT DISTINCT kategoria FROM `projektdatart` WHERE kategoria LIKE '$sql_k%'";
-
-
-
-		
-
-		$kategorie = $DB->prepare($sql);
-		$kategorie->execute();
-		$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
-		foreach($kategorie as $kategoria){
-			$kategoria = $kategoria->kategoria;
-			$nase_kategorie = explode(" | ", $kategoria);
-			$pod_kategoria = $nase_kategorie[$pocet_kategorii];
-			if((!in_array($pod_kategoria, $polia_kategorii[$pocet_kategorii-1])) && ($pod_kategoria != "")){
-				$polia_kategorii[$pocet_kategorii-1][] = $pod_kategoria;
-			}
-			
-		}
 		$je_podkategoria = false;
-		foreach ($polia_kategorii as $polia_kategorie) {
+
+
+		if($sql_k){
+		
+			$sql = "SELECT DISTINCT kategoria FROM `projektdatart` WHERE kategoria LIKE '$sql_k%'";
+
+			$kategorie = $DB->prepare($sql);
+			$kategorie->execute();
+			$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
+			foreach($kategorie as $kategoria){
+				$kategoria = $kategoria->kategoria;
+				$nase_kategorie = explode(" | ", $kategoria);
+				$pod_kategoria = $nase_kategorie[$pocet_kategorii];
+				if((!in_array($pod_kategoria, $polia_kategorii[$pocet_kategorii-1])) && ($pod_kategoria != "")){
+					$polia_kategorii[$pocet_kategorii-1][] = $pod_kategoria;
+				}
+				
+			}
+			foreach ($polia_kategorii as $polia_kategorie) {
 			if($polia_kategorie){
 				$je_podkategoria = true;
 			}
 		}
+		}
+		
 		if($je_podkategoria){
 		
 	?>
@@ -188,7 +190,11 @@
 		<ul class="items">
 			<?php
 				$selectitems = $pagenum * 9;
-				$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$sql_k%' LIMIT $selectitems,9;";
+				if($sql_k == ""){ 
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT $selectitems,9;";
+				}else{
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE kategoria LIKE '$sql_k%' LIMIT $selectitems,9;";
+				}
 				$products = $DB->prepare($sql);
 				$products->execute();
 				$index_products = $products->fetchAll(PDO::FETCH_OBJ);

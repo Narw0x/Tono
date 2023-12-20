@@ -4,24 +4,31 @@
 	if (isset($_GET['produkt'])) {
 		
 		
-	$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE urlnazov='$url_produkt' LIMIT 1";
+	$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov, kategoria FROM `projektdatart` WHERE urlnazov='$url_produkt' LIMIT 1";
 	$produkt = $DB->prepare($sql);
 	$produkt->execute();
 	$zvoleny_produkt = $produkt->fetchAll(PDO::FETCH_OBJ);
 	}else{
 		echo "oppa";
 	}
+
+	foreach ($zvoleny_produkt as $produktik){
+		$produkt_k = $produktik->kategoria;
+		$produkt_k = explode(" | ", $produkt_k);
+		$produkt_n = $produktik->nazov;
+		$k1 = $produkt_k[0];
+		$k2 = $produkt_k[1];
+
+	}
 	include "partials/header.php";
-
-
 ?>
 <main class="main-page">
 	<div class="product">
 		<div class="product-path">
 			<ul>
 				<li><a href="index.php">Domov</a><span>   /</span></li>
-				<li><a href="products.php">Produkty</a><span>   /</span></li>
-				<li class="active"><p><?php foreach ($zvoleny_produkt as $produktik) echo ($produktik->nazov) ?></p></li>
+				<li><a href="products.php?k1=<?php echo $k1 ?>&k2=<?php echo $k2 ?>">Produkty</a><span>   /</span></li>
+				<li class="active"><p><?php echo $produkt_n?></p></li>
 			</ul>	
 		</div>
 		
