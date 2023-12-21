@@ -25,18 +25,6 @@
 	}
 
 ?>
-<script>
-  var pagenum = <?php echo $pagenum; ?>;
-  console.log(pagenum);
-  window.onload = function() {
-    var previousItem = document.getElementById('previous');
-    
-    if (pagenum === 1) {
-      previousItem.classList.add('block');
-    }
-  };
-</script>
-
 <div class="span-9">
 	<h1>Naše produkty</h1>
 	<?php 
@@ -196,6 +184,14 @@
 	<div class="container">
 		<ul class="items">
 			<?php
+				$sql = "SELECT COUNT(kategoria) AS NumberOfProducts FROM projektdatart WHERE kategoria LIKE '$sql_k%';";
+
+				$countProducts = $DB->prepare($sql);
+				$countProducts->execute();
+				$countPro = $countProducts->fetchAll(PDO::FETCH_OBJ);
+				foreach ($countPro as $count) {
+					$numberOfProducts = $count->NumberOfProducts;
+				}
 				$selectitems = $pagenum * 24 - 24;
 				if($sql_k == ""){ 
 					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT $selectitems, 24;";
@@ -273,10 +269,31 @@
 						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$pole_kategorii_url[8]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
 						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&k2=<?=$pole_kategorii_url[1]?>&k3=<?=$pole_kategorii_url[2]?>&k4=<?=$pole_kategorii_url[3]?>&k5=<?=$pole_kategorii_url[4]?>&k6=<?=$pole_kategorii_url[5]?>&k7=<?=$pole_kategorii_url[6]?>&k8=<?=$pole_kategorii_url[7]?>&k9=<?=$pole_kategorii_url[8]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
 					<?php
-			}
-			?>
+			}elseif($pole_kategorii_url[1] == ""){
+					?>
+						<a class="pagiBtn" id="previous" href="products.php?k1=<?=$pole_kategorii_url[0]?>&page=<?= $pagenum-1 ?>">Predošlá strana</a>
+						<a class="pagiBtn" id="next" href="products.php?k1=<?=$pole_kategorii_url[0]?>&page=<?= $pagenum+1 ?>">Nasledujúca strana</a>
+					<?php
+			}	?>
 		</div>
 	</div>
+
 <?php
 	include "partials/footer.php";
 ?>
+<script>
+  var pagenum = <?php echo $pagenum; ?>;
+  console.log(pagenum);
+  window.onload = function() {
+    var previousItem = document.getElementById('previous');
+    
+    if (pagenum === 1) {
+      previousItem.classList.add('block');
+    }
+  };
+
+  var numberOfProducts = <?php echo $numberOfProducts; ?>;
+  if (numberOfProducts <= pagenum * 24) {
+	document.getElementById('next').classList.add('block');
+  }
+</script>

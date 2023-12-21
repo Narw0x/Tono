@@ -37,7 +37,7 @@
 								foreach ($kategorie as $kategoria) {
 									$kategoria = $kategoria->kategoria;
 									$nase_kategorie = explode(" | ", $kategoria);
-									if (!in_array($nase_kategorie[1], $podkategorie)){
+									if (!in_array($nase_kategorie[1], $podkategorie) && ($nase_kategorie[1] != "")){
 										$podkategorie[] = $nase_kategorie[1];
 									}
 								}
