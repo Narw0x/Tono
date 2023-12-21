@@ -49,9 +49,6 @@ a {
   border-width: 0.15rem;
   border-color: black;
 }
-.main-hdr .nav .nav-srch form input::-moz-placeholder {
-  color: black;
-}
 .main-hdr .nav .nav-srch form input::placeholder {
   color: black;
 }
@@ -74,51 +71,82 @@ a {
 }
 
 .main-page {
-  margin: 0 auto;
-  max-width: 1280px;
+  margin: 10rem 5rem;
   display: flex;
   padding: 1rem;
   border-radius: 1rem;
+  -webkit-box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
   box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
 }
 .main-page .span-3 {
   flex: 3;
 }
-.main-page .span-3 .container {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-}
 .main-page .span-3 .container .items {
-  border: 0.1rem solid black;
+  border: 0.1rem solid #212529;
   border-radius: 0.35rem;
+  padding: 0 !important;
+  display: flex;
+  padding: 0.3rem;
+  flex-direction: column;
+  gap: 0.1rem;
 }
 .main-page .span-3 .container .items .item {
+  border: 1px solid rgba(33, 37, 41, 0.6039215686);
+  border-radius: 0.3rem;
+  margin: 0 !important;
   padding: 0.5rem;
   cursor: pointer;
 }
 .main-page .span-3 .container .items .item a {
-  color: black;
+  width: max-content !important;
+  color: #212529;
   text-decoration: none;
+  transition: all 0.3s;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+}
+.main-page .span-3 .container .items .item a:hover {
+  background-color: #212529;
+  color: white;
 }
 .main-page .span-3 .container .items .item .subitem {
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out;
-  padding-left: 1rem;
+  padding-left: 2rem;
+  border-radius: 0.3rem;
+  visibility: hidden;
 }
 .main-page .span-3 .container .items .item .subitem li {
+  border-left: 1px solid rgba(33, 37, 41, 0.6039215686);
   padding: 0.25rem;
+  transition: all 0.3s;
+}
+.main-page .span-3 .container .items .item .subitem li:hover {
+  background-color: #212529;
+}
+.main-page .span-3 .container .items .item .subitem li:hover a {
+  color: white;
 }
 .main-page .span-3 .container .items .item .subitem li a {
-  color: black;
+  color: #212529;
 }
 .main-page .span-3 .container .items .item .subitem-open {
   max-height: 200px; /* Set a reasonable default value */
+  visibility: visible;
 }
 .main-page .span-9 {
   flex: 9;
   padding: 0.5rem;
   margin-left: 0.5rem;
+  border: 1px solid rgba(33, 37, 41, 0.6039215686);
+  border-radius: 0.3rem;
+  width: 100% !important;
 }
 .main-page .span-9 h1 {
   margin-bottom: 2rem;
@@ -128,7 +156,7 @@ a {
   margin-bottom: 1rem;
 }
 .main-page .span-9 .container-categories {
-  border: 0.1rem solid rgb(221, 221, 221);
+  border: 0.1rem solid #212529;
   border-radius: 0.5rem;
   margin: 2rem 0;
 }
@@ -136,17 +164,19 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0rem;
   width: 100%;
   height: auto;
+  padding: 0;
+  margin: 0;
 }
 .main-page .span-9 .container-categories .items .item {
   flex: 1 0 auto;
   width: calc(25% - 1rem);
-  margin: 0.5rem;
-  border: 0.1rem solid rgb(221, 221, 221);
+  margin: 0.1rem;
+  border: 0.1rem solid rgba(33, 37, 41, 0.6039215686);
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   cursor: pointer;
 }
 .main-page .span-9 .container-categories .items .item a {
@@ -182,8 +212,7 @@ a {
 .main-page .span-9 .container .items .item .card .card-img img {
   width: 15rem;
   height: 15rem;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .main-page .span-9 .container .items .item .card .card-inf {
   display: flex;

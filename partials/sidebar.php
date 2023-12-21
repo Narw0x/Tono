@@ -1,53 +1,74 @@
 <?php
-	$sql = "SELECT DISTINCT kategoria FROM `projektdatart` ";
-	$kategorie = $DB->prepare($sql);
-	$kategorie->execute();
-	$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
-	$pole_kategorii = array();
-	foreach ($kategorie as $kategoria) {
-		$kategoria = $kategoria->kategoria;
-		$nase_kategorie = explode(" | ", $kategoria);
-		$hlavna_kategoria = $nase_kategorie[0];
-		if (!in_array($hlavna_kategoria, $pole_kategorii)){
-			$pole_kategorii[] = $hlavna_kategoria;
-		}
+$sql = "SELECT DISTINCT kategoria FROM `projektdatart` ";
+$kategorie = $DB->prepare($sql);
+$kategorie->execute();
+$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
+$pole_kategorii = array();
+foreach ($kategorie as $kategoria) {
+	$kategoria = $kategoria->kategoria;
+	$nase_kategorie = explode(" | ", $kategoria);
+	$hlavna_kategoria = $nase_kategorie[0];
+	if (!in_array($hlavna_kategoria, $pole_kategorii)) {
+		$pole_kategorii[] = $hlavna_kategoria;
 	}
+}
 ?>
-
 
 <main class="main-page">
 	<div class="span-3">
 		<div class="container">
 			<ul class="items">
-				<?php 
-					foreach ($pole_kategorii as $hlavna_kategoria) {
-						$sql = "SELECT DISTINCT kategoria FROM `projektdatart` WHERE kategoria LIKE '$hlavna_kategoria%'";
-						$kategorie = $DB->prepare($sql);
-						$kategorie->execute();
-						$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
+				<?php
+				foreach ($pole_kategorii as $hlavna_kategoria) {
+					$sql = "SELECT DISTINCT kategoria FROM `projektdatart` WHERE kategoria LIKE '$hlavna_kategoria%'";
+					$kategorie = $DB->prepare($sql);
+					$kategorie->execute();
+					$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
 					if ($hlavna_kategoria != "Smart hodinky") {
-						?><hr><?php
-					}
 				?>
-					
-					<li class="item sidebar"><a href="products.php?k1=<?=$hlavna_kategoria?>"><?=  $hlavna_kategoria ?></a>
-						<ul class="subitem" >
-						<?php 
-							$podkategorie = array();
-							foreach ($kategorie as $kategoria) {
-								$kategoria = $kategoria->kategoria;
-								$nase_kategorie = explode(" | ", $kategoria);
-								if (!in_array($nase_kategorie[1], $podkategorie)){
-									$podkategorie[] = $nase_kategorie[1];
+						<li class="item sidebar">
+							<a href="products.php?k1=<?= $hlavna_kategoria ?>
+" class="nav-link hlavna-kategoria"><?= $hlavna_kategoria ?></a>
+							<ul class="subitem">
+								<?php
+								$podkategorie = array();
+								foreach ($kategorie as $kategoria) {
+									$kategoria = $kategoria->kategoria;
+									$nase_kategorie = explode(" | ", $kategoria);
+									if (isset($nase_kategorie[1]) && $nase_kategorie[1] != "") {
+										if (!in_array($nase_kategorie[1], $podkategorie)) {
+											$podkategorie[] = $nase_kategorie[1];
+										}
+									}
 								}
-							}
-							foreach ($podkategorie as $podkategoria) {
+								foreach ($podkategorie as $podkategoria) {
 								?>
-									<li><a href="products.php?k1=<?=$hlavna_kategoria?>&k2=<?=$podkategoria?>"><?=  $podkategoria ?></a></li>
-							<?php } ?>
-						</ul>
-					</li>
-				<?php }  ?>
+									<li><a href="products.php?k1=<?= $hlavna_kategoria ?>&k2=<?= $podkategoria ?>" class="nav-link"><?= $podkategoria ?></a></li>
+								<?php } ?>
+							</ul>
+						</li>
+				<?php }
+				} ?>
 			</ul>
 		</div>
 	</div>
+
+
+	<script>
+		const elements = document.querySelectorAll(".items .sidebar");
+
+		elements.forEach(function(element) {
+			element.addEventListener('click', function() {
+				const subitem = element.querySelector('.subitem');
+				if (subitem) {
+					subitem.classList.toggle('subitem-open');
+
+					if (subitem.classList.contains('subitem-open')) {
+						subitem.style.maxHeight = subitem.scrollHeight + "px";
+					} else {
+						subitem.style.maxHeight = null;
+					}
+				}
+			});
+		});
+	</script>

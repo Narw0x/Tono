@@ -82,8 +82,7 @@ a{
     }
 }
 .main-page{
-    margin: 0 auto;
-    max-width: 1280px;
+    margin: 10rem 5rem;
     display: flex;
     padding: 1rem;
     border-radius: 1rem;
@@ -94,33 +93,68 @@ a{
     .span-3{
         flex: 3;
         .container{
-            padding: 0.5rem;
-            margin-right: 0.5rem;
+            // padding: 0.5rem;
+            // margin-right: 0.5rem;
             .items{
-                border: 0.1rem solid black;
+                border: 0.1rem solid #212529;
                 border-radius: 0.35rem;
+                padding: 0 !important;
+                display: flex;
+                padding: 0.3rem;
+                flex-direction: column;
+                gap: 0.1rem;
                 .item{
+                    border: 1px solid #2125299a;
+                    border-radius: 0.3rem ;
+                    margin: 0 !important;
                     a{
-                        color: black;
+                        width: max-content !important;
+                        color: #212529;
                         text-decoration: none;
+                        transition: all .3s;
+                        padding: 0.2rem 0.5rem;
+                        border-radius: 0.3rem;
+                        &:hover{
+                            background-color: #212529;
+                            color: white;
+                        }
                     }
                     padding: 0.5rem;
                     cursor: pointer;
                     .subitem {
+                        margin: 1rem 0 0 0 ;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.3rem;
                         max-height: 0;
                         overflow: hidden;
                         transition: max-height 0.5s ease-out;
-                        padding-left: 1rem;
+                        padding-left: 2rem;
+                        // border: 1px solid black;
+                        border-radius: 0.3rem;
+
+                        visibility: hidden;
                         li{
+                            border-left: 1px solid #2125299a;
+                            // width: 10rem;
+                            // border-radius: 0.3rem;
                             padding: 0.25rem;
+                            transition: all .3s;
+                            &:hover{
+                                background-color: #212529;
+                                a{
+                                    color: white;
+                                }
+                            }
                             a{
-                                color: black;
+                                color: #212529;
                             }
                         }
                     }
                 
                     .subitem-open {
                         max-height: 200px; /* Set a reasonable default value */
+                        visibility: visible;
                     }
                 }
             }
@@ -130,6 +164,9 @@ a{
         flex: 9;
         padding: 0.5rem;
         margin-left: 0.5rem;
+        border: 1px solid #2125299a;
+        border-radius: 0.3rem;
+        width: 100% !important;
         h1{
             margin-bottom: 2rem;
         }
@@ -139,7 +176,7 @@ a{
             margin-bottom: 1rem;
         }
         .container-categories {
-            border: 0.1rem solid rgb(221, 221, 221);
+            border: 0.1rem solid #212529;
             border-radius: 0.5rem;
             margin: 2rem 0;
         
@@ -147,17 +184,19 @@ a{
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 0.75rem;
+                gap: 0rem;
                 width: 100%;
                 height: auto;
+                padding: 0;
+                margin: 0;
         
                 .item {
                     flex: 1 0 auto; 
                     width: calc(25% - 1rem); 
-                    margin: 0.5rem;
-                    border: 0.1rem solid rgb(221, 221, 221);
+                    margin: 0.1rem;
+                    border: 0.1rem solid #2125299a;
                     padding: 0.5rem;
-                    border-radius: 0.5rem;
+                    border-radius: 0.3rem;
                     cursor: pointer;
         
                     a {
