@@ -43,13 +43,14 @@ a{
         max-width: 1480px;
         height: 6rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         .nav-logo{
             padding: 1rem;
             a{
                 text-decoration: none;
                 font-size: 3rem;
                 color: #16425B;
+                font-family: 'Lora', serif;
 
             }
         }
@@ -94,7 +95,6 @@ a{
     max-width: 1480px;
     display: flex;
     padding: 1rem;
-    border-radius: 1rem;
     -webkit-box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
     -moz-box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
     box-shadow: 0px 9px 36px -1px rgba(0,0,0,0.27);
@@ -162,14 +162,16 @@ a{
         }
 
         h1{
-            margin-bottom: 2rem;
+            margin-bottom: 0.7rem;
             color: #16425B;
+            font-family: 'Lora', serif;
         }
         h3, p
         {
             margin-top: 0.5;
             margin-bottom: 1rem;
             color: #16425B;
+            font-family: 'Lora', serif;
         }
         .container-categories {
             border: 0.1rem solid rgb(221, 221, 221);
