@@ -13,7 +13,7 @@
 		<div class="container">
 			<ul class="items">
 				<?php
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE znacka='philips' LIMIT 25,9;";
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE znacka='huawei' LIMIT 25,9;";
 					$products = $DB->prepare($sql);
 					$products->execute();
 					$index_products = $products->fetchAll(PDO::FETCH_OBJ);

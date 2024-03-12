@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($zvoleny_produkt) ? implode('', array_column($zvoleny_produkt, 'nazov')): "Rexev" ?></title>
+    <title><?php 
+    error_reporting(E_ERROR | E_PARSE);
+    $titleContent = isset($zvoleny_produkt) ? implode('', array_column($zvoleny_produkt, 'nazov')) : "Rexev";
+    
+    if (isset($sql_k)) {
+        echo htmlspecialchars($sql_k);
+    } else {
+        echo htmlspecialchars($titleContent);
+    }
+?></title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="../../Tono/style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

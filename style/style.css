@@ -331,4 +331,5 @@ a {
 
 .block {
   pointer-events: none;
+  visibility: hidden;
 }/*# sourceMappingURL=style.css.map */
