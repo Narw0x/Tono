@@ -11,7 +11,7 @@
 <header class="main-hdr">
     <div  class="nav">
         <div class="nav-logo">
-            <a class="" href="index.php">Vexer</a>
+            <a class="" href="index.php">Vaxer</a>
         </div>
         <div class="nav-srch">
             <form method="post" action="partials/search.php" > 
