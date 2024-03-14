@@ -1,5 +1,5 @@
 </main>
-<script src="../Tono/scripts/script.js"></script>
+<script src="../Alza/scripts/script.js"></script>
 
 </body>
 </html>

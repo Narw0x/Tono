@@ -16,7 +16,7 @@
 		
 			
 	
-	<a href="products.php" class="btn btn-large"><i class="icon-arrow-left"></i>Nakupovať</a>
+	<a href="produkty.php" class="btn btn-large"><i class="icon-arrow-left"></i>Nakupovať</a>
 	
 </div>
 <?php

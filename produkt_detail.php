@@ -17,8 +17,6 @@
 		$produkt_k = explode(" | ", $produkt_k);
 		$produkt_n = $produktik->nazov;
 		$k1 = $produkt_k[0];
-		$k2 = $produkt_k[1];
-
 	}
 	include "partials/header.php";
 ?>
@@ -27,7 +25,7 @@
 		<div class="product-path">
 			<ul>
 				<li><a href="index.php">Domov</a><span>   /</span></li>
-				<li><a href="products.php?k1=<?php echo $k1 ?>&k2=<?php echo $k2 ?>">Produkty</a><span>   /</span></li>
+				<li><a href="products.php?p_n=0&k1=<?php echo $k1 ?>"><?php echo $k1 ?></a><span>   /</span></li>
 				<li class="active"><p><?php echo $produkt_n?></p></li>
 			</ul>	
 		</div>

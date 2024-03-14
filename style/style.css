@@ -172,6 +172,11 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: all 0.25s ease-in-out;
+}
+.main-page .span-9 .container .items .item .card:hover {
+  box-shadow: 0px 9px 36px -1px rgba(0, 0, 0, 0.27);
+  transform: scale(1.02);
 }
 .main-page .span-9 .container .items .item .card .card-img {
   display: flex;
@@ -184,6 +189,7 @@ a {
   height: 15rem;
   -o-object-fit: contain;
      object-fit: contain;
+  color: black;
 }
 .main-page .span-9 .container .items .item .card .card-inf {
   display: flex;

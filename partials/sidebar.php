@@ -25,25 +25,25 @@
 						$kategorie = $DB->prepare($sql);
 						$kategorie->execute();
 						$kategorie = $kategorie->fetchAll(PDO::FETCH_OBJ);
-					if ($hlavna_kategoria != "Smart hodinky") {
+					if ($hlavna_kategoria != "Mobilné telefóny") {
 						?><hr><?php
 					}
 				?>
 					
-					<li class="item sidebar"><a href="products.php?k1=<?=$hlavna_kategoria?>"><?=  $hlavna_kategoria ?></a>
+					<li class="item sidebar"><a href="produkty.php?p_n=0&k1=<?=$hlavna_kategoria?>"><?=  $hlavna_kategoria ?></a>
 						<ul class="subitem" >
 						<?php 
 							$podkategorie = array();
 							foreach ($kategorie as $kategoria) {
 								$kategoria = $kategoria->kategoria;
 								$nase_kategorie = explode(" | ", $kategoria);
-								if (!in_array($nase_kategorie[1], $podkategorie)){
+								if (!in_array($nase_kategorie[1], $podkategorie) && ($nase_kategorie[1] != "")){
 									$podkategorie[] = $nase_kategorie[1];
 								}
 							}
 							foreach ($podkategorie as $podkategoria) {
 								?>
-									<li><a href="products.php?k1=<?=$hlavna_kategoria?>&k2=<?=$podkategoria?>"><?=  $podkategoria ?></a></li>
+									<li><a href="produkty.php?p_n=0&k1=<?=$hlavna_kategoria?>&k2=<?=$podkategoria?>"><?=  $podkategoria ?></a></li>
 							<?php } ?>
 						</ul>
 					</li>

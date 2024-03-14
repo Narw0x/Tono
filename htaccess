@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{QUERY_STRING} ^produkt=([^&]+)$
+RewriteRule ^produkt_detail\.php$ %1.html? [R=301,L,NE]
+RewriteRule ^([^/]+)\.html produkt_detail.php?produkt=$1 [L,QSA]
+ErrorDocument 404 http://ziaci.eu/404.html

@@ -13,25 +13,25 @@
 		<div class="container">
 			<ul class="items">
 				<?php
-					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` WHERE znacka='philips' LIMIT 25,9;";
-					$products = $DB->prepare($sql);
-					$products->execute();
-					$index_products = $products->fetchAll(PDO::FETCH_OBJ);
-					foreach ($index_products as $product) {
+					$sql = "SELECT nazov, popisproduktu, cena, img, urlnazov FROM `projektdatart` LIMIT 0,30;";
+					$pkty = $DB->prepare($sql);
+					$pkty->execute();
+					$pkty = $pkty->fetchAll(PDO::FETCH_OBJ);
+					foreach ($pkty as $pkt) {
 				?>
 					<li class="item">
 						<div class="card">
-							<a class="card-img" href="product_details.php?produkt=<?= $product->urlnazov ?>">
-								<img  src='<?= $product->img ?>' alt="<?= $product->nazov ?>"/>
+							<a class="card-img" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>">
+								<img  src='<?= $pkt->img ?>' alt="<?= $pkt->nazov ?>"/>
 							</a>
 							<div class="card-inf">
 								<h5 class="card-name">
-									<a href="product_details.php?produkt=<?= $product->urlnazov ?>"><?= $product->nazov ?></a>
+									<a href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>"><?= $pkt->nazov ?></a>
 								</h5>
 								<div class="card-buy">
 									
-									<a class="red" href="product_details.php?produkt=<?= $product->urlnazov ?>">
-											<?= $product->cena ?>€
+									<a class="red" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>">
+											<?= $pkt->cena ?>€
 									</a>
 									<a class="blue" href="#">
 										Pridať do košíka
