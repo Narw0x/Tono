@@ -1,8 +1,8 @@
 ﻿<?php
-include "_inc/config.php";
-// include "_inc/functions.php";
-include "partials/header.php";
-include "partials/sidebar.php";
+	include "_inc/config.php";
+	// include "_inc/functions.php";
+	include "partials/header.php";
+	include "partials/sidebar.php";
 ?>
 
 	<div class="span-9">		
@@ -14,7 +14,7 @@ include "partials/sidebar.php";
 		<div class="container">
 			<ul class="items">
 				<?php
-					$sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` LIMIT -1,24;";
+					$sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` LIMIT 25,24;";
 					$products = $DB->prepare($sql);
 					$products->execute();
 					$index_products = $products->fetchAll(PDO::FETCH_OBJ);
@@ -46,7 +46,7 @@ include "partials/sidebar.php";
 		</div>
 	</div>
 
-
-<?php
-include "partials/footer.php";
+	
+<?php 
+	include "partials/footer.php";
 ?>
