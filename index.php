@@ -14,7 +14,7 @@
 		<div class="container">
 			<ul class="items">
 				<?php
-					$sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` LIMIT 25,24;";
+					$sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` LIMIT -1,24;";
 					$products = $DB->prepare($sql);
 					$products->execute();
 					$index_products = $products->fetchAll(PDO::FETCH_OBJ);

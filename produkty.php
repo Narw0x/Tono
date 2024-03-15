@@ -4,7 +4,8 @@
 	}else{
 		echo "hahaha";
 	}
-	$pagenum = $_GET['p_n'];
+	$pagenum = $_GET['p_n'] ? $_GET['p_n'] : 0;
+
 
 	include "_inc/config.php";
 	include "partials/header.php";
