@@ -1,20 +1,20 @@
-@mixin button($color: darkblue, $bgcolor: whitesmoke){
-    padding: 0.85rem;
-    border: 0.15rem solid $color;                        
+@mixin button($color: teal, $bgcolor: lavender) {
+    padding: 1rem;
+    border: 0.1rem solid $color;
     background-color: $color;
     color: $bgcolor;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-family: 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    border-radius: 0rem;
+    transition: all 0.5s ease-in-out;
 
-    &:hover{
+    &:hover {
         background-color: $bgcolor;
         color: $color;
-        border: 0.15rem solid $color;    
+        border: 0.1rem solid darken($color, 10%);
         cursor: pointer;
-        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }
 }
 

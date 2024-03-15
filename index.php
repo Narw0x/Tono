@@ -1,8 +1,8 @@
 ﻿<?php
-	include "_inc/config.php";
-	// include "_inc/functions.php";
-	include "partials/header.php";
-	include "partials/sidebar.php";
+include "_inc/config.php";
+// include "_inc/functions.php";
+include "partials/header.php";
+include "partials/sidebar.php";
 ?>
 
 	<div class="span-9">		
@@ -46,7 +46,7 @@
 		</div>
 	</div>
 
-	
-<?php 
-	include "partials/footer.php";
+
+<?php
+include "partials/footer.php";
 ?>
