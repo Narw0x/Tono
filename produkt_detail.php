@@ -17,7 +17,7 @@
 		<div class="product-path">
 			<ul>
 				<li><a href="index.php">Domov</a><span>   /</span></li>
-				<li><a href="products.php?p_n=1&k1=<?= $zvoleny_produkt[0]->kategoria ?>"><?= $zvoleny_produkt[0]->kategoria ?></a><span>   /</span></li>
+				<li><a href="produkty.php?p_n=1&k1=<?= $zvoleny_produkt[0]->kategoria ?>"><?= $zvoleny_produkt[0]->kategoria ?></a><span>   /</span></li>
 				<li class="active"><p><?= $zvoleny_produkt[0]->nazov ?></p></li>
 			</ul>	
 		</div>

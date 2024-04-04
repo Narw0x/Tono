@@ -27,11 +27,11 @@
 							</a>
 							<div class="card-inf">
 								<h5 class="card-name">
-									<a href="produkt_detail.php?produkt=<?= $pkt->nazov ?>"><?= $pkt->nazov ?></a>
+									<a href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>"><?= $pkt->nazov ?></a>
 								</h5>
 								<div class="card-buy">
 									
-									<a class="red" href="produkt_detail.php?produkt=<?= $pkt->nazov ?>">
+									<a class="red" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>">
 											<?= $pkt->cena ?>€
 									</a>
 									<a class="blue" href="#">

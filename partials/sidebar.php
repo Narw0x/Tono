@@ -14,7 +14,7 @@
 					foreach ($kategorie as $kat){
 				?>
 					
-					<li class="item sidebar"><a href="produkty.php?p_n=0&k1=<?php echo $kat->kategoria ?>"><?php echo $kat->kategoria ?></a>
+					<li class="item sidebar"><a href="produkty.php?p_n=1&k1=<?php echo $kat->kategoria ?>"><?php echo $kat->kategoria ?></a>
 						
 					</li>
 				<?php 

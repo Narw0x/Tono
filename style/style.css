@@ -56,21 +56,22 @@ a {
   color: black;
 }
 .main-hdr .nav .nav-srch form button {
-  padding: 0.85rem;
-  border: 0.15rem solid darkblue;
-  background-color: darkblue;
-  color: whitesmoke;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  padding: 1rem;
+  border: 0.1rem solid teal;
+  background-color: teal;
+  color: lavender;
+  font-family: "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border-radius: 0rem;
+  transition: all 0.5s ease-in-out;
 }
 .main-hdr .nav .nav-srch form button:hover {
-  background-color: whitesmoke;
-  color: darkblue;
-  border: 0.15rem solid darkblue;
+  background-color: lavender;
+  color: teal;
+  border: 0.1rem solid #004d4d;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .main-page {
@@ -119,6 +120,25 @@ a {
   flex: 9;
   padding: 0.5rem;
   margin-left: 0.5rem;
+}
+.main-page .span-9 .pagi {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  gap: 1rem;
+}
+.main-page .span-9 .pagi .pagiBtn {
+  border: 0.1rem solid darkblue;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  color: darkblue;
+  text-decoration: none;
+}
+.main-page .span-9 .pagi .pagiBtn:hover {
+  box-shadow: 0px 9px 16px -1px rgba(0, 0, 0, 0.27);
+  transform: scale(1.01);
 }
 .main-page .span-9 h1 {
   margin-bottom: 2rem;
@@ -275,21 +295,22 @@ a {
   cursor: pointer;
 }
 .main-page .product .product-details .span-6 div button {
-  padding: 0.85rem;
-  border: 0.15rem solid darkblue;
-  background-color: darkblue;
-  color: whitesmoke;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  padding: 1rem;
+  border: 0.1rem solid teal;
+  background-color: teal;
+  color: lavender;
+  font-family: "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border-radius: 0rem;
+  transition: all 0.5s ease-in-out;
 }
 .main-page .product .product-details .span-6 div button:hover {
-  background-color: whitesmoke;
-  color: darkblue;
-  border: 0.15rem solid darkblue;
+  background-color: lavender;
+  color: teal;
+  border: 0.1rem solid #004d4d;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .main-page .product .product-details .span-6 p {
   text-align: justify;

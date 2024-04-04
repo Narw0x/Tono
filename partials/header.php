@@ -6,6 +6,7 @@
     <title><?php echo isset($zvoleny_produkt) ? implode('', array_column($zvoleny_produkt, 'nazov')): "Vexer" ?></title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="../../Alza/style/style.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
 <header class="main-hdr">
