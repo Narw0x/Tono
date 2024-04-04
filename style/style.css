@@ -57,19 +57,18 @@ a {
 }
 .main-hdr .nav .nav-srch form button {
   padding: 1rem;
-  border: 0.1rem solid teal;
-  background-color: teal;
-  color: lavender;
-  font-family: "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 0.9rem;
-  border-radius: 0rem;
+  border: 0.1rem solid darkblue;
+  background-color: darkblue;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
   transition: all 0.5s ease-in-out;
 }
 .main-hdr .nav .nav-srch form button:hover {
-  background-color: lavender;
-  color: teal;
-  border: 0.1rem solid #004d4d;
+  background-color: whitesmoke;
+  color: darkblue;
+  border: 0.1rem solid #000058;
   cursor: pointer;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
@@ -296,19 +295,18 @@ a {
 }
 .main-page .product .product-details .span-6 div button {
   padding: 1rem;
-  border: 0.1rem solid teal;
-  background-color: teal;
-  color: lavender;
-  font-family: "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 0.9rem;
-  border-radius: 0rem;
+  border: 0.1rem solid darkblue;
+  background-color: darkblue;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
   transition: all 0.5s ease-in-out;
 }
 .main-page .product .product-details .span-6 div button:hover {
-  background-color: lavender;
-  color: teal;
-  border: 0.1rem solid #004d4d;
+  background-color: whitesmoke;
+  color: darkblue;
+  border: 0.1rem solid #000058;
   cursor: pointer;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }

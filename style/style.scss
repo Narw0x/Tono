@@ -1,12 +1,11 @@
-@mixin button($color: teal, $bgcolor: lavender) {
+@mixin button($color: darkblue, $bgcolor: whitesmoke) {
     padding: 1rem;
     border: 0.1rem solid $color;
     background-color: $color;
     color: $bgcolor;
-    font-family: 'Times New Roman', serif;
-    font-weight: 400;
-    font-size: 0.9rem;
-    border-radius: 0rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: .5rem;
     transition: all 0.5s ease-in-out;
 
     &:hover {
