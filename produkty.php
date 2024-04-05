@@ -1,10 +1,10 @@
 <?php
 	if (isset($_GET['k1'])){
 		$k1 = $_GET['k1'];
-	}else{
-		echo "hahaha";
+	}elseif(isset($_GET['srch'])) {
+		$srch = $_GET['srch'];
 	}
-	$pagenum = $_GET['p_n'];
+	$pagenum = $_GET['p_n'] ?? 1;
 
 	include "_inc/config.php";
 	include "partials/header.php";
@@ -17,8 +17,7 @@
 	<div class="container">
 		<ul class="items">
 			<?php 
-				$sql = "SELECT COUNT(kategoria) AS NumberOfProducts FROM knihy WHERE kategoria ='$k1';";
-
+				$k1 ? $sql = "SELECT COUNT(kategoria) AS NumberOfProducts FROM knihy WHERE kategoria ='$k1';" : $sql = "SELECT COUNT(nazov) AS NumberOfProducts FROM knihy WHERE nazov LIKE '% $srch %';";
 				$countProducts = $DB->prepare($sql);
 				$countProducts->execute();
 				$countPro = $countProducts->fetchAll(PDO::FETCH_OBJ);
@@ -26,7 +25,8 @@
 					$numberOfProducts = $count->NumberOfProducts;
 				}
 				$selectitems = $pagenum * 24 - 24;
-				$sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE kategoria ='$k1' LIMIT $selectitems, 24;";
+				$k1 ? $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE kategoria ='$k1' LIMIT $selectitems, 24;" : $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE nazov LIKE '% $srch %' LIMIT $selectitems, 24;";
+				echo $sql;
 				$products = $DB->prepare($sql);
 				$products->execute();
 				$index_products = $products->fetchAll(PDO::FETCH_OBJ);
@@ -52,10 +52,14 @@
 			</ul>
 		</div>
 		<div class="pagi">
+			<?php
+				$href_next = $k1 ? "produkty.php?p_n=".($pagenum + 1)."&k1=".$k1: "produkty.php?p_n=".($pagenum + 1)."&srch=".$srch;
+				$href_previous = $k1 ? "produkty.php?p_n=".($pagenum - 1)."&k1=".$k1: "produkty.php?p_n=".($pagenum - 1)."&srch=".$srch;
+			?>
 			<?php if ($pagenum > 1) { ?>
-				<a class="pagiBtn" id="previous" href="produkty.php?p_n=<?= $pagenum - 1?>&k1=<?=$k1?>">Predošlá strana</a>
+				<a class="pagiBtn" id="previous" href="<?php echo $href_previous ?>">Predošlá strana</a>
 			<?php } ?>
-			<a class="pagiBtn" id="next" href="produkty.php?p_n=<?= $pagenum + 1?>&k1=<?=$k1?>">Nasledujúca strana</a>
+			<a class="pagiBtn" id="next" href="<?php echo $href_next ?>">Nasledujúca strana</a>
 		</div>
 	</div>
 <?php include "partials/footer.php";?> 
