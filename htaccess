@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{QUERY_STRING} ^produkt=([^&]+)$
+RewriteRule ^produkt_detail\.php$ /alza/%1.html? [R=301,L,NE]
+RewriteRule ^([^/]+)\.html$ produkt_detail.php?produkt=$1 [L,QSA]

@@ -125,11 +125,12 @@ a {
   justify-content: center;
   margin: 1rem auto;
   gap: 1rem;
+  max-width: 100%;
 }
 .main-page .span-9 .pagi .pagiBtn {
   border: 0.1rem solid darkblue;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.4rem;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   color: darkblue;
@@ -138,6 +139,28 @@ a {
 .main-page .span-9 .pagi .pagiBtn:hover {
   box-shadow: 0px 9px 16px -1px rgba(0, 0, 0, 0.27);
   transform: scale(1.01);
+}
+.main-page .span-9 .pagi .pagiBtn-active {
+  border: 0.1rem solid darkblue;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  color: white;
+  background-color: darkblue;
+  text-decoration: none;
+}
+.main-page .span-9 .pagi .pagiBtn-active:hover {
+  box-shadow: 0px 9px 16px -1px rgba(0, 0, 0, 0.27);
+  transform: scale(1.01);
+}
+.main-page .span-9 .pagi .dots {
+  padding: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: darkblue;
 }
 .main-page .span-9 h1 {
   margin-bottom: 2rem;

@@ -21,9 +21,7 @@
 				$countProducts = $DB->prepare($sql);
 				$countProducts->execute();
 				$countPro = $countProducts->fetchAll(PDO::FETCH_OBJ);
-				foreach ($countPro as $count) {
-					$numberOfProducts = $count->NumberOfProducts;
-				}
+				$numberOfProducts = $countPro[0]->NumberOfProducts;
 				$selectitems = $pagenum * 24 - 24;
 				$k1 ? $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE kategoria ='$k1' LIMIT $selectitems, 24;" : $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE nazov LIKE '% $srch %' LIMIT $selectitems, 24;";
 				$products = $DB->prepare($sql);
@@ -51,14 +49,27 @@
 			</ul>
 		</div>
 		<div class="pagi">
-			<?php
-				$href_next = $k1 ? "produkty.php?p_n=".($pagenum + 1)."&k1=".$k1: "produkty.php?p_n=".($pagenum + 1)."&srch=".$srch;
-				$href_previous = $k1 ? "produkty.php?p_n=".($pagenum - 1)."&k1=".$k1: "produkty.php?p_n=".($pagenum - 1)."&srch=".$srch;
+			
+			<?php 
+				for ($i=1; $i <= 2; $i++) {
+					$class = $pagenum == $i ? 'pagiBtn-active' : '';
+					echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
+				}
+				echo $pagenum > 4 ? "<span class='dots'>. . .</span>": "";
+				for ($i=($pagenum - 1); $i <= ($pagenum + 1); $i++) {
+					$class = $pagenum == $i ? 'pagiBtn-active' : '';
+					if ($i > 2 && $i < ceil($numberOfProducts/24) - 1) {
+						echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
+					}
+				}
+				echo $pagenum < (ceil($numberOfProducts/24)- 3 ) ? "<span class='dots'>. . .</span>": "";
+				for ($i=(ceil($numberOfProducts/24) - 1); $i <= ceil($numberOfProducts/24); $i++) {
+					$class = $pagenum == $i ? 'pagiBtn-active' : '';
+					echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
+				}
+
+
 			?>
-			<?php if ($pagenum > 1) { ?>
-				<a class="pagiBtn" id="previous" href="<?php echo $href_previous ?>">Predošlá strana</a>
-			<?php } ?>
-			<a class="pagiBtn" id="next" href="<?php echo $href_next ?>">Nasledujúca strana</a>
 		</div>
 	</div>
 <?php include "partials/footer.php";?> 
