@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($zvoleny_produkt) ? implode('', array_column($zvoleny_produkt, 'nazov')): "Vexer" ?></title>
+    <title><?php 
+    if(isset($zvoleny_produkt)) echo implode('', array_column($zvoleny_produkt, 'nazov'));
+    else if($_GET['k1']) echo $_GET['k1'];
+    else echo "Vaxer";
+    ?></title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="../../Alza/style/style.css">
-    <script src="js/main.js"></script>
 </head>
 <body>
 <header class="main-hdr">

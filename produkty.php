@@ -26,7 +26,6 @@
 				}
 				$selectitems = $pagenum * 24 - 24;
 				$k1 ? $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE kategoria ='$k1' LIMIT $selectitems, 24;" : $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE nazov LIKE '% $srch %' LIMIT $selectitems, 24;";
-				echo $sql;
 				$products = $DB->prepare($sql);
 				$products->execute();
 				$index_products = $products->fetchAll(PDO::FETCH_OBJ);
