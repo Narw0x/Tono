@@ -2,7 +2,7 @@
 	include "_inc/config.php";
 	$u_p = $_GET['produkt'];
 	if (isset($_GET['produkt'])) {		
-		$sql = "SELECT nazov, autor, kategoria, informacieoknihe, cena, obrazok FROM `knihy` WHERE nazov='$u_p' LIMIT 1";
+		$sql = "SELECT nazov, autor, kategoria, informacieoknihe, cena, obrazok FROM `knihy` WHERE urlnazov LIKE '%$u_p%' LIMIT 1";
 		$produkt = $DB->prepare($sql);
 		$produkt->execute();
 		$zvoleny_produkt = $produkt->fetchAll(PDO::FETCH_OBJ);

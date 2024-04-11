@@ -21,7 +21,7 @@
 				?>
 					<li class="item">
 						<div class="card">
-							<a class="card-img" href="produkt_detail.php?produkt=<?= $pkt->nazov ?>">
+							<a class="card-img" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>">
 								<img  src='<?= $pkt->obrazok ?>' alt="<?= $pkt->nazov ?>"/>
 							</a>
 							<div class="card-inf">

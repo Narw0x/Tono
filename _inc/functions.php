@@ -14,7 +14,8 @@ function xmlInsert($DB, $xmlFile, $kategoria) {
         $informacieoknihe = $item->description;
         $cena = $item->price;
         $obrazok = $item->enclosure['url'];
-        $urlnazov = preg_replace('/[^a-zA-Z0-9\s]/', '', $nazov);;
+        $urlnazov = preg_replace('/[^a-zA-Z0-9\s]/', '', $nazov);
+        $urlnazov = str_replace(' ', '-', $urlnazov);
 
         $stmt = $DB->prepare("INSERT INTO knihy1 (nazov, autor, informacieoknihe, cena, obrazok, kategoria, urlnazov) 
                              VALUES (:nazov, :autor, :informacieoknihe, :cena, :obrazok, :kategoria, :urlnazov)");

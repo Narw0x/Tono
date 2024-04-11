@@ -23,7 +23,7 @@
 				$countPro = $countProducts->fetchAll(PDO::FETCH_OBJ);
 				$numberOfProducts = $countPro[0]->NumberOfProducts;
 				$selectitems = $pagenum * 24 - 24;
-				$k1 ? $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE kategoria ='$k1' LIMIT $selectitems, 24;" : $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE nazov LIKE '% $srch %' LIMIT $selectitems, 24;";
+				$k1 ? $sql = "SELECT nazov, autor, cena, obrazok, urlnazov FROM `knihy` WHERE kategoria ='$k1' LIMIT $selectitems, 24;" : $sql = "SELECT nazov, autor, cena, obrazok FROM `knihy` WHERE nazov LIKE '% $srch %' LIMIT $selectitems, 24;";
 				$products = $DB->prepare($sql);
 				$products->execute();
 				$index_products = $products->fetchAll(PDO::FETCH_OBJ);
@@ -31,12 +31,12 @@
 			?>
 					<li class="item">
 						<div class="card">
-							<a class="card-img" href="produkt_detail.php?produkt=<?= $pkt->nazov ?>">
+							<a class="card-img" href="produkt_detail.php?produkt=<?=$pkt->urlnazov ?>">
 								<img  src='<?= $pkt->obrazok ?>' alt="<?= $pkt->nazov ?>"/>
 							</a>
 							<div class="card-inf">
 								<h5 class="card-name">
-									<a href="produkt_detail.php?produkt=<?= $pkt->nazurlnazovov ?>"><?= $pkt->nazov ?></a>
+									<a href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>"><?= $pkt->nazov ?></a>
 								</h5>
 								<div class="card-buy">
 									<a class="red" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>"><?= $pkt->cena ?>€</a>
@@ -65,7 +65,7 @@
 				echo $pagenum < (ceil($numberOfProducts/24)- 3 ) ? "<span class='dots'>. . .</span>": "";
 				for ($i=(ceil($numberOfProducts/24) - 1); $i <= ceil($numberOfProducts/24); $i++) {
 					$class = $pagenum == $i ? 'pagiBtn-active' : '';
-					echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
+					if($i > 2) echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
 				}
 
 
