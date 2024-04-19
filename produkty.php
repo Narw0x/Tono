@@ -12,7 +12,7 @@
 
 ?>
 <div class="span-9">
-	<h1>Naše produkty</h1>
+	<h1>Naše <?php echo strtolower($k1) ?></h1>
 	
 	<div class="container">
 		<ul class="items">
@@ -51,9 +51,10 @@
 		<div class="pagi">
 			
 			<?php 
-				for ($i=1; $i <= 2; $i++) {
+				$pagiFirst = ceil($numberOfProducts/24) == 1 ?  1 : 2;
+				for ($i=1; $i <= $pagiFirst; $i++) {
 					$class = $pagenum == $i ? 'pagiBtn-active' : '';
-					echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
+					 echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
 				}
 				echo $pagenum > 4 ? "<span class='dots'>. . .</span>": "";
 				for ($i=($pagenum - 1); $i <= ($pagenum + 1); $i++) {
@@ -67,7 +68,6 @@
 					$class = $pagenum == $i ? 'pagiBtn-active' : '';
 					if($i > 2) echo $k1 ? "<a class='pagiBtn $class' href='produkty.php?p_n=$i&k1=$k1'>$i</a>" : "<a class='pagiBtn $class' href='produkty.php?p_n=$i&srch=$srch'>$i</a>";
 				}
-
 
 			?>
 		</div>

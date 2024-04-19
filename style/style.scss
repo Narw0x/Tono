@@ -122,6 +122,12 @@ a{
                         max-height: 200px; /* Set a reasonable default value */
                     }
                 }
+                .active{
+                    background-color: darkblue;
+                    a{
+                        color: white;
+                    }
+                }
             }
         }
     }

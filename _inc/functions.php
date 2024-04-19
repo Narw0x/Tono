@@ -14,8 +14,10 @@ function xmlInsert($DB, $xmlFile, $kategoria) {
         $informacieoknihe = $item->description;
         $cena = $item->price;
         $obrazok = $item->enclosure['url'];
-        $urlnazov = preg_replace('/[^a-zA-Z0-9\s]/', '', $nazov);
-        $urlnazov = str_replace(' ', '-', $urlnazov);
+        $urlnazov = strtolower($nazov);
+        $urlnazov = iconv('UTF-8', 'ASCII//TRANSLIT', $urlnazov);
+        $urlnazov = preg_replace("/'/", '', $urlnazov);
+        $urlnazov = preg_replace('/[^\p{L}\p{N}]+/u', '-', $urlnazov);
 
         $stmt = $DB->prepare("INSERT INTO knihy1 (nazov, autor, informacieoknihe, cena, obrazok, kategoria, urlnazov) 
                              VALUES (:nazov, :autor, :informacieoknihe, :cena, :obrazok, :kategoria, :urlnazov)");
@@ -30,7 +32,7 @@ function xmlInsert($DB, $xmlFile, $kategoria) {
     }
 }
 
-xmlInsert($DB, 'http://export.martinus.sk/?a=XmlPartner&cat=6414&q=&z=B7GET5&key=NYtvbkOHAzPzGJNz7qR9Kk', "Učebnice pre stredné školy");
+xmlInsert($DB, 'http://export.martinus.sk/?a=XmlPartner&cat=6758&q=&z=B7GET5&key=NYtvbkOHAzPzGJNz7qR9Kk', "Učebnice pre stredné školy");
 xmlInsert($DB, 'http://export.martinus.sk/?a=XmlPartner&cat=6768&q=&z=B7GET5&key=NYtvbkOHAzPzGJNz7qR9Kk', "Učebnice pre autoškoly");
 xmlInsert($DB, 'http://export.martinus.sk/?a=XmlPartner&cat=6764&q=&z=B7GET5&key=NYtvbkOHAzPzGJNz7qR9Kk', "Učebnice pre vysoké školy");
 xmlInsert($DB, 'http://export.martinus.sk/?a=XmlPartner&cat=6408&q=&z=B7GET5&key=NYtvbkOHAzPzGJNz7qR9Kk', "Knihy o programovaní");
