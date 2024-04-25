@@ -1,10 +1,7 @@
 RewriteEngine On
-RewriteBase /alza
-
-# Prevent redirect loop
-RewriteCond %{ENV:REDIRECT_STATUS} !200
-RewriteCond %{QUERY_STRING} ^produkt=([^&]+)$
-RewriteRule ^produkt_detail\.php$ %1.html? [R=301,L,NE]
-
-# Rewrite URL to produkt_detail.php
-RewriteRule ^([^/]+)\.html$ produkt_detail.php?produkt=$1 [L,QSA]
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.php/([^\s]+) [NC]
+RewriteRule ^ %1 [R=301,L,NE]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+?)/?$ index.php/$1 [L]

@@ -1,8 +1,10 @@
 <?php
-	include "_inc/config.php";
-	$u_p = $_GET['produkt'];
-	if (isset($_GET['produkt'])) {		
-		$sql = "SELECT nazov, autor, kategoria, informacieoknihe, cena, obrazok FROM `knihy` WHERE urlnazov LIKE '%$u_p%' LIMIT 1";
+	$request = strtok($_SERVER['REQUEST_URI'], "?");
+	$request = explode("/", $request);
+	$url_produkt = $request[2];
+
+	if (isset($url_produkt)) {		
+		$sql = "SELECT nazov, autor, kategoria, informacieoknihe, cena, obrazok, urlkategoria FROM `knihy` WHERE urlnazov LIKE '%$u_p%' LIMIT 1";
 		$produkt = $DB->prepare($sql);
 		$produkt->execute();
 		$zvoleny_produkt = $produkt->fetchAll(PDO::FETCH_OBJ);
@@ -16,8 +18,8 @@
 	<div class="product">
 		<div class="product-path">
 			<ul>
-				<li><a href="index.php">Domov</a><span>   /</span></li>
-				<li><a href="produkty.php?p_n=1&k1=<?= $zvoleny_produkt[0]->kategoria ?>"><?= $zvoleny_produkt[0]->kategoria ?></a><span>   /</span></li>
+				<li><a href="/">Domov</a><span>   /</span></li>
+				<li><a href="/<?= $zvoleny_produkt[0]->urlkategoria ?>_1"><?= $zvoleny_produkt[0]->kategoria ?></a><span>   /</span></li>
 				<li class="active"><p><?= $zvoleny_produkt[0]->nazov ?></p></li>
 			</ul>	
 		</div>

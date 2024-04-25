@@ -1,51 +1,70 @@
 ﻿<?php
-	include "_inc/config.php";
-	include "partials/header.php";
-	include "partials/sidebar.php";
-?>
 
-	<div class="span-9">		
-		<h1>Výpredaj!</h1>
-		<p>
-			Aktuálne prebieha vianočna akcia! Všetky produkty sú zľavnené o 10%!
-		</p>
-		<h3>Toto sú naše top produkty!</h3>
-		<div class="container">
-			<ul class="items">
-				<?php
-					$sql = "SELECT nazov, autor, cena, obrazok, urlnazov FROM `knihy` LIMIT 0,24;";
-					$products = $DB->prepare($sql);
-					$products->execute();
-					$index_products = $products->fetchAll(PDO::FETCH_OBJ);
-					foreach ($index_products as $pkt) {
-				?>
-					<li class="item">
-						<div class="card">
-							<a class="card-img" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>">
-								<img  src='<?= $pkt->obrazok ?>' alt="<?= $pkt->nazov ?>"/>
-							</a>
-							<div class="card-inf">
-								<h5 class="card-name">
-									<a href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>"><?= $pkt->nazov ?></a>
-								</h5>
-								<div class="card-buy">
-									
-									<a class="red" href="produkt_detail.php?produkt=<?= $pkt->urlnazov ?>">
-											<?= $pkt->cena ?>€
-									</a>
-									<a class="blue" href="#">
-										Pridať do košíka
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-				<?php } ?>
-			</ul>		
-		</div>
-	</div>
+require_once '_inc/config.php';
 
+$sql = "SELECT DISTINCT kategoria, urlkategoria FROM `knihy`";
+$knihy = $DB->prepare($sql);
+$knihy->execute();
+$kategoria = $knihy->fetchAll(PDO::FETCH_OBJ);
+
+$sql = "SELECT kategoria, urlkategoria, nazov, urlnazov FROM `knihy`";
+$produkty = $DB->prepare($sql);
+$produkty->execute();
+$produkty = $produkty->fetchAll(PDO::FETCH_OBJ);
+
+$sql = "SELECT kategoria, COUNT(*) AS pocetZaznamov FROM knihy GROUP BY kategoria;";
+$countBooks = $DB->prepare($sql);
+$countBooks->execute();
+$countBook = $countBooks->fetchAll(PDO::FETCH_OBJ);
+
+$request = strtok($_SERVER['REQUEST_URI'], "?");
+
+$check = 0;
+
+foreach ($kategoria as $kategorie) {
+	for ($i = 0; $i < 6; $i++) {
+		if($kategorie->kategoria == $countBook[$i]->kategoria){
+			$pocetStran = floor($countBook[$i]->pocetZaznamov / 24) + 2;
+			for($j = 1; $j < $pocetStran; $j++){
+				switch ($request) {
+					case "/{$kategorie->urlkategoria}_$j":
+						require __DIR__ . '/produkty.php';
+						$check = 1;
+						break;
+				}
+			}
+		}
+	}
+}
 	
-<?php 
-	include "partials/footer.php";
+foreach ($produkty as $produkt) {
+	switch ($request) {
+		case "/$produkt->urlkategoria/$produkt->urlnazov":
+			require __DIR__ . '/produkt_detail.php';
+			$check = 1;
+			break;		
+	}
+} 
+
+switch ($request) {
+    case '/':
+        require __DIR__ . '/landing.php';
+		$check = 1;
+        break;
+    case '':
+        require __DIR__ . '/landing.php';
+		$check = 1;
+        break;
+	}
+
+if ($check == 1) {
+	// nic proste, idk mohol somdat ze nie je jedna ale proste uz sa mi nechcelo
+} else {
+	switch($request){
+		default:
+			require __DIR__ . '/404.php';
+			break;
+	}
+}
+
 ?>

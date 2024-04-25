@@ -9,13 +9,15 @@
     else echo "Vaxer";
     ?></title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="../../Alza/style/style.css">
+    <link rel="stylesheet" href="/../Alza/style/style.css">
 </head>
 <body>
 <header class="main-hdr">
     <div  class="nav">
         <div class="nav-logo">
-            <a class="" href="index.php">Vaxer</a>
+            <a class="" href="/">Vaxer</a>
         </div>
         <div class="nav-srch">
             <form method="post" action="partials/search.php" > 
