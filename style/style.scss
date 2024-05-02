@@ -121,6 +121,11 @@ a{
                     .subitem-open {
                         max-height: 200px; /* Set a reasonable default value */
                     }
+                    &:hover{background-color: darkblue;
+                        a{
+                            color: white;
+                        }
+                    }
                 }
                 .active{
                     background-color: darkblue;
@@ -227,9 +232,26 @@ a{
                 flex-direction: row;
                 flex-wrap: wrap;
                 gap: 0.75rem ;
+                @media screen and (max-width: 768px) {
+                    flex-direction: column !important;
+
+                }
+                @media screen and (max-width: 1124px) {
+                
+
+                }
                 .item{
                     flex: 3;
                     max-width: 33%;
+                    @media screen and (max-width: 1124px) {
+                        flex: 2;
+                        max-width: 50%;
+                    }
+                    @media screen and (max-width: 768px) {
+                        flex: 1;
+                        max-width: 100%;
+                    }
+
                     .card{
                         border: 0.1rem solid rgb(221, 221, 221);
                         padding: 0.5rem;

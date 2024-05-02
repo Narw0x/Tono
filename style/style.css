@@ -115,6 +115,12 @@ a {
 .main-page .span-3 .container .items .item .subitem-open {
   max-height: 200px; /* Set a reasonable default value */
 }
+.main-page .span-3 .container .items .item:hover {
+  background-color: darkblue;
+}
+.main-page .span-3 .container .items .item:hover a {
+  color: white;
+}
 .main-page .span-3 .container .items .active {
   background-color: darkblue;
 }
@@ -208,9 +214,26 @@ a {
   flex-wrap: wrap;
   gap: 0.75rem;
 }
+@media screen and (max-width: 768px) {
+  .main-page .span-9 .container .items {
+    flex-direction: column !important;
+  }
+}
 .main-page .span-9 .container .items .item {
   flex: 3;
   max-width: 33%;
+}
+@media screen and (max-width: 1124px) {
+  .main-page .span-9 .container .items .item {
+    flex: 2;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-page .span-9 .container .items .item {
+    flex: 1;
+    max-width: 100%;
+  }
 }
 .main-page .span-9 .container .items .item .card {
   border: 0.1rem solid rgb(221, 221, 221);
